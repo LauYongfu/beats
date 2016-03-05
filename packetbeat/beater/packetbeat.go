@@ -32,6 +32,7 @@ import (
 	"github.com/elastic/beats/packetbeat/protos/udp"
 	"github.com/elastic/beats/packetbeat/publish"
 	"github.com/elastic/beats/packetbeat/sniffer"
+	"github.com/elastic/beats/packetbeat/protos/drda"
 )
 
 var EnabledProtocolPlugins map[protos.Protocol]protos.ProtocolPlugin = map[protos.Protocol]protos.ProtocolPlugin{
@@ -43,6 +44,7 @@ var EnabledProtocolPlugins map[protos.Protocol]protos.ProtocolPlugin = map[proto
 	protos.ThriftProtocol:   new(thrift.Thrift),
 	protos.MongodbProtocol:  new(mongodb.Mongodb),
 	protos.DnsProtocol:      new(dns.Dns),
+	protos.DrdaProtocol:     new(drda.Drda),
 }
 
 // Beater object. Contains all objects needed to run the beat

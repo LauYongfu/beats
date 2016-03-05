@@ -109,6 +109,13 @@ protocols:
 {% if mysql_send_request %}    send_request: true{% endif %}
 {% if mysql_send_response %}    send_response: true{% endif %}
 
+  drda:
+    ports: [{{ drda_ports|default([1527])|join(", ") }}]
+{% if drda_max_rows %}    max_rows: {{drda_max_rows}}{% endif %}
+{% if drda_max_row_length %}    max_row_length: {{drda_max_row_length}}{% endif %}
+{% if drda_send_request %}    send_request: true{% endif %}
+{% if drda_send_response %}    send_response: true{% endif %}
+
   pgsql:
     ports: [{{ pgsql_ports|default([5432])|join(", ") }}]
 {% if pgsql_max_rows %}    max_rows: {{pgsql_max_rows}}{% endif %}
